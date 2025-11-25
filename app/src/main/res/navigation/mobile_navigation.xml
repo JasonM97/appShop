@@ -46,7 +46,21 @@
         android:id="@+id/navigation_camisetas"
         android:name="com.example.apptienda.ui.tshirts.TShirtsFragment"
         android:label="Camisetas"
-        tools:layout="@layout/fragment_tshirts" />
+        tools:layout="@layout/fragment_tshirts">
+
+        <action
+            android:id="@+id/action_camisetas_to_detalle"
+            app:destination="@id/navigation_detalle_producto" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_detalle_producto"
+        android:name="com.example.apptienda.ui.detallecompra.DetalleCompraFragment"
+        android:label="Detalle Producto"
+        tools:layout="@layout/fragment_detalle_compra" />
+
+
 
 
 

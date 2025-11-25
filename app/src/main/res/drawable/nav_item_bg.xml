@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo del item seleccionado -->
+    <item android:state_checked="true">
+        <layer-list>
+            <!-- Línea azul arriba -->
+            <item android:height="4dp" android:gravity="top">
+                <shape android:shape="rectangle">
+                    <solid android:color="#1A73E8"/>
+                </shape>
+            </item>
+
+            <!-- Fondo blanco debajo -->
+            <item android:top="4dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/white"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <!-- Fondo normal -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white"/>
+        </shape>
+    </item>
+
+</selector>

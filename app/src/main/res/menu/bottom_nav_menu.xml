@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_compras"
         android:icon="@drawable/shopping_cart_24px"
-        android:title="@string/title_compras" />
+        android:title="@string/title_compras"
+        app:popUpTo="@id/navigation_compras"
+        app:popUpToInclusive="true"/>
 
     <item
         android:id="@+id/navigation_history"
         android:icon="@drawable/history_24px"
-        android:title="@string/title_history" />
+        android:title="@string/title_history"
+        app:popUpTo="@id/navigation_history"
+        app:popUpToInclusive="true"/>
 
     <item
         android:id="@+id/navigation_reels"
         android:icon="@drawable/video_library_24px"
-        android:title="@string/title_reels" />
+        android:title="@string/title_reels"
+        app:popUpTo="@id/navigation_reels"
+        app:popUpToInclusive="true"/>
 
     <item
         android:id="@+id/navigation_contact"
         android:icon="@drawable/contact_phone_24px"
-        android:title="@string/title_contacto" />
+        android:title="@string/title_contacto"
+        app:popUpTo="@id/navigation_contact"
+        app:popUpToInclusive="true"/>
 
 </menu>

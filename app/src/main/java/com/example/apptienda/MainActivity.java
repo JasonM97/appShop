@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,9 +25,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+
+
+
         setContentView(binding.getRoot());
 
         // Header
@@ -44,5 +49,18 @@ public class MainActivity extends AppCompatActivity {
         // Bottom Navigation
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        binding.navView.setOnItemSelectedListener(item -> {
+
+            // Antes de navegar, limpiamos el back stack hasta la pantalla raíz
+            navController.popBackStack(R.id.navigation_compras, false);
+            navController.popBackStack(R.id.navigation_history, false);
+            navController.popBackStack(R.id.navigation_reels, false);
+            navController.popBackStack(R.id.navigation_contact, false);
+
+            NavigationUI.onNavDestinationSelected(item, navController);
+            return true;
+        });
+
     }
 }

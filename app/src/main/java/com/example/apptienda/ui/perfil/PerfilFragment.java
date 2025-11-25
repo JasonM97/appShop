@@ -1,6 +1,9 @@
 package com.example.apptienda.ui.perfil;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +31,30 @@ public class PerfilFragment extends Fragment {
 
         // Botón cerrar sesión
         binding.btnLogout.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), LoginActivity.class);
-            startActivity(intent);
-            getActivity().finish();
+
+            new AlertDialog.Builder(requireContext())
+                    .setTitle("Cerrar sesión")
+                    .setMessage("¿Seguro que deseas cerrar sesión?")
+                    .setPositiveButton("Sí", (dialog, which) -> {
+
+                        // Limpia datos si usas preferencias
+                        SharedPreferences prefs = requireActivity()
+                                .getSharedPreferences("USER_DATA", Context.MODE_PRIVATE);
+                        prefs.edit().clear().apply();
+
+                        // Ir al LoginActivity limpiando el back stack
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+
+                    })
+                    .setNegativeButton("Cancelar", (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .show();
         });
+
+
 
         return binding.getRoot();
     }

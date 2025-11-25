@@ -6,7 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.apptienda.R;
 import com.example.apptienda.databinding.FragmentTshirtsBinding;
 
 public class TShirtsFragment extends Fragment {
@@ -19,7 +21,16 @@ public class TShirtsFragment extends Fragment {
 
         binding = FragmentTshirtsBinding.inflate(inflater, container, false);
 
-        // Aquí luego pondrás la lógica para mostrar los productos
+        binding.btnBack.setOnClickListener(v -> {
+            NavHostFragment.findNavController(TShirtsFragment.this).navigateUp();
+        });
+
+        binding.cardItem1.setOnClickListener(v -> {
+            NavHostFragment.findNavController(TShirtsFragment.this)
+                    .navigate(R.id.action_camisetas_to_detalle);
+        });
+
+
         return binding.getRoot();
     }
 }
