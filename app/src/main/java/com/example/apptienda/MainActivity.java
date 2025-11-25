@@ -1,6 +1,9 @@
 package com.example.apptienda;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,6 +19,8 @@ import com.example.apptienda.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private View header;
+    private ImageView imgProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +29,20 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
+        // Header
+        header = findViewById(R.id.mainHeader);
+        imgProfile = header.findViewById(R.id.imgProfile);
+
+        // Click para ir al perfil
+        imgProfile.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+            if (navController.getCurrentDestination().getId() != R.id.navigation_profile) {
+                navController.navigate(R.id.navigation_profile);
+            }
+        });
+
+        // Bottom Navigation
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
-
 }

@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().hide(); // OCULTA LA BARRA SUPERIOR
+        //getSupportActionBar().hide(); // OCULTA LA BARRA SUPERIOR
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
@@ -42,15 +42,17 @@ public class LoginActivity extends AppCompatActivity {
                     String usuarioInput = usuario.getText().toString().trim();
                     String contraseñaInput = contraseña.getText().toString().trim();
 
+                    Toast.makeText(LoginActivity.this, "¡Login correcto!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     // Validación por defecto
-                    if(usuarioInput.equals("admin") && contraseñaInput.equals("1234")) {
-                        Toast.makeText(LoginActivity.this, "¡Login correcto!", Toast.LENGTH_SHORT).show();
-
-                        // Aquí nos dirige a la interfaz MainActivity
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                    }
+//                    if(usuarioInput.equals("admin") && contraseñaInput.equals("1234")) {
+//                        Toast.makeText(LoginActivity.this, "¡Login correcto!", Toast.LENGTH_SHORT).show();
+//
+//                        // Aquí nos dirige a la interfaz MainActivity
+//                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+//                    } else {
+//                        Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+//                    }
 
                 }
             });

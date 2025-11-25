@@ -1,4 +1,4 @@
-package com.example.apptienda.ui.notifications;
+package com.example.apptienda.ui.contact;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.apptienda.databinding.FragmentNotificationsBinding;
+import com.example.apptienda.databinding.FragmentContactBinding;
 
-public class NotificationsFragment extends Fragment {
+public class ContactFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentContactBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        ContactViewModel contactViewModel =
+                new ViewModelProvider(this).get(ContactViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentContactBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textHome;
+        contactViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

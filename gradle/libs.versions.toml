@@ -12,6 +12,7 @@ navigationFragment = "2.6.0"
 navigationUi = "2.6.0"
 annotation = "1.9.1"
 gridlayout = "1.1.0"
+kotlin = "2.0.21"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -29,4 +30,5 @@ gridlayout = { group = "androidx.gridlayout", name = "gridlayout", version.ref =
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
