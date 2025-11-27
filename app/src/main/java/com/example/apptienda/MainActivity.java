@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         // ******************************** RUTA PARA DIRIRGRISE AL PERFIL
         // Sonido para el perfil
-        MediaPlayer sonidoPerfil = MediaPlayer.create(this, R.raw.click3);
+        MediaPlayer sonidoPerfil = MediaPlayer.create(this, R.raw.click4);
 
         imgProfile.setOnClickListener(v -> {
             // Reproducir sonido

@@ -48,9 +48,9 @@
 
             <ImageView
                 android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/nombre"
+                android:src="@drawable/desarrollador1"
                 android:contentDescription="Producto 1" />
 
             <TextView
