@@ -5,6 +5,39 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_compras">
 
+
+    <!-- ****** NAVEGACION A PANTALLA DE COMPRAS ********* -->
+           <!-- layout : llama al fragment:compras  -->
+    <fragment
+        android:id="@+id/navigation_compras"
+        android:name="com.example.apptienda.ui.compras.ComprasFragment"
+        android:label="@string/title_compras"
+        tools:layout="@layout/fragment_compras">
+
+        <!-- Acccion subpantalla : PRODUCTOS STOCK -->
+        <action
+            android:id="@+id/action_compras_to_camisetas"
+            app:destination="@id/navigation_camisetas" />
+
+        <!-- Si quiero ir a la pnatlla detalla de Compra otor fragmente ( de abajo) -->
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_camisetas"
+        android:name="com.example.apptienda.ui.tshirts.TShirtsFragment"
+        android:label="Camisetas"
+        tools:layout="@layout/fragment_tshirts">
+
+        <action
+            android:id="@+id/action_camisetas_to_detalle"
+            app:destination="@id/navigation_detalle_producto" />
+    </fragment>
+
+
+
+    <!-- DECLARACION DE LOS FRAGMENTOS-->
+
     <fragment
         android:id="@+id/navigation_contact"
         android:name="com.example.apptienda.ui.contact.ContactFragment"
@@ -12,17 +45,10 @@
         tools:layout="@layout/fragment_contact" />
 
     <fragment
-        android:id="@+id/navigation_compras"
-        android:name="com.example.apptienda.ui.compras.ComprasFragment"
-        android:label="@string/title_compras"
-        tools:layout="@layout/fragment_compras">
-
-        <action
-            android:id="@+id/action_compras_to_camisetas"
-            app:destination="@id/navigation_camisetas" />
-
-    </fragment>
-
+        android:id="@+id/navigation_detalle_producto"
+        android:name="com.example.apptienda.ui.detallecompra.DetalleCompraFragment"
+        android:label="Detalle Producto"
+        tools:layout="@layout/fragment_detalle_compra" />
 
     <fragment
         android:id="@+id/navigation_reels"
@@ -42,23 +68,9 @@
         android:label="Perfil"
         tools:layout="@layout/fragment_profile" />
 
-    <fragment
-        android:id="@+id/navigation_camisetas"
-        android:name="com.example.apptienda.ui.tshirts.TShirtsFragment"
-        android:label="Camisetas"
-        tools:layout="@layout/fragment_tshirts">
-
-        <action
-            android:id="@+id/action_camisetas_to_detalle"
-            app:destination="@id/navigation_detalle_producto" />
-    </fragment>
 
 
-    <fragment
-        android:id="@+id/navigation_detalle_producto"
-        android:name="com.example.apptienda.ui.detallecompra.DetalleCompraFragment"
-        android:label="Detalle Producto"
-        tools:layout="@layout/fragment_detalle_compra" />
+
 
 
 

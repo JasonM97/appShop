@@ -54,5 +54,9 @@ dependencies {
     implementation("com.airbnb.android:lottie:6.4.0")
     implementation ("com.google.android.material:material:1.10.0")
 
-
+    //Dependencias para videos ( reels tipo tiktok)
+    // ExoPlayer (usa la versión más reciente)
+    implementation ("com.google.android.exoplayer:exoplayer:2.19.1")
+    // ViewPager2 ya viene con AndroidX, pero asegúrate de tener:
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
 }

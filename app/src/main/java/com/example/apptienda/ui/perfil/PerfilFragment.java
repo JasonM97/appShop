@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.example.apptienda.LoginActivity;
+import com.example.apptienda.R;
 import com.example.apptienda.databinding.FragmentProfileBinding;
 
 public class PerfilFragment extends Fragment {
@@ -54,8 +55,23 @@ public class PerfilFragment extends Fragment {
                     .show();
         });
 
-
-
         return binding.getRoot();
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        requireActivity().findViewById(R.id.mainHeader).setVisibility(View.GONE);
+        requireActivity().findViewById(R.id.nav_view).setVisibility(View.GONE);
+    }
+
+    // 🟩 MOSTRAR HEADER NUEVAMENTE CUANDO SALES DEL FRAGMENTO
+    @Override
+    public void onStop() {
+        super.onStop();
+        requireActivity().findViewById(R.id.mainHeader).setVisibility(View.VISIBLE);
+        requireActivity().findViewById(R.id.nav_view).setVisibility(View.VISIBLE);
+    }
+
+
+
 }
